@@ -122,6 +122,7 @@ for ps5 in playstations:
         else:
             print(f"{ps5['name']} ERROR: {ps5['resp']['status_code']}")
 
+os.makedirs('log', exist_ok=True)
 with open(f'log/ps5_check.{start_time.strftime(time_format)}.log', 'ta') as log:
-    log.write(pformat(playstations, indent=2, sort_dicts=False))
+    log.write(pformat(playstations, indent=2, compact=True, sort_dicts=False))
     log.write('\n')
