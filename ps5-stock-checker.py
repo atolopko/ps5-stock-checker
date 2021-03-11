@@ -4,6 +4,7 @@ from datetime import datetime
 from pprint import pformat
 import os
 import time
+import sys
 
 log_requests_debug = True
 
@@ -106,9 +107,14 @@ async def make_requests(playstations):
     await asyncio.gather(*requests)
     end = time.monotonic()
     elapsed = end - start
-    print(f"All requests done. Took {elapsed}")
+    print(f"Requests time: {elapsed} sec")
 
 asyncio.run(make_requests(playstations))
+
+os.makedirs('log', exist_ok=True)
+with open(f'log/ps5_check.{start_time.strftime(time_format)}.log', 'ta') as log:
+    log.write(pformat(playstations, indent=2, compact=True, sort_dicts=False))
+    log.write('\n')
 
 for ps5 in playstations:
     if ps5.get('exception'):
@@ -116,13 +122,10 @@ for ps5 in playstations:
     else:
         if ps5['resp']['status_code'] == 200:
             print(f"{ps5['name']}: {'IN STOCK' if ps5['in_stock'] else 'OUT OF STOCK'}")
-            if ps5['in_stock']:
-                while True:
-                    os.system(f'say -v Samantha ALERT! PLAYSTATION AVAILABLE {ps5["name"]}')
         else:
             print(f"{ps5['name']} ERROR: {ps5['resp']['status_code']}")
 
-os.makedirs('log', exist_ok=True)
-with open(f'log/ps5_check.{start_time.strftime(time_format)}.log', 'ta') as log:
-    log.write(pformat(playstations, indent=2, compact=True, sort_dicts=False))
-    log.write('\n')
+if any(map(lambda ps5: ps5['in_stock'], playstations)):
+    sys.exit(0)
+else:
+    sys.exit(1)
