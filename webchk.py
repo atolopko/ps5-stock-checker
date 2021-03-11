@@ -3,6 +3,7 @@ import asyncio
 from datetime import datetime
 from pprint import pformat
 import os
+import time
 
 log_requests_debug = True
 
@@ -94,9 +95,20 @@ async def request(ps5):
         ps5['exception'] = str(e)
 
 
-for ps5 in playstations:
-    asyncio.run(request(ps5))
+async def make_requests(playstations):
+    start = time.monotonic()
+    requests = []
+    for ps5 in playstations:
+        task = asyncio.create_task(request(ps5))
+        # print(task)
+        requests.append(task)
 
+    await asyncio.gather(*requests)
+    end = time.monotonic()
+    elapsed = end - start
+    print(f"All requests done. Took {elapsed}")
+
+asyncio.run(make_requests(playstations))
 
 for ps5 in playstations:
     if ps5.get('exception'):
