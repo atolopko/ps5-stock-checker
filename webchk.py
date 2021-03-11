@@ -3,6 +3,7 @@ import asyncio
 from datetime import datetime
 from pprint import pformat
 import os
+import time
 
 log_requests_debug = True
 
@@ -94,8 +95,13 @@ async def request(ps5):
         ps5['exception'] = str(e)
 
 
+start = time.monotonic()
+
 for ps5 in playstations:
     asyncio.run(request(ps5))
+
+end = time.monotonic()
+print(f'Elapsed = {end - start}')
 
 
 for ps5 in playstations:
