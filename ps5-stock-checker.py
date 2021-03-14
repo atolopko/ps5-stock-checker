@@ -46,35 +46,45 @@ playstations = [
         'predicate': target_predicate
     },
     {
-        'name': 'BestBuy, Holyoke, PS5 Disc Edition',
-        'url': 'https://www.bestbuy.com/site/sony-playstation-5-console/6426149.p?skuId=6426149',
-        'headers': {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36', 'Accept': '*/*'},
-        'predicate': bestbuy_predicate
+        'name': 'Target, Worcester, PS5 Disc Edition',
+        'url': 'https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=ff457966e64d5e877fdbad070f276d18ecec4a01&tcin=81114596&store_id=1348&store_positions_store_id=1348&has_store_positions_store_id=true&zip=01075&state=MA&latitude=42.24842&longitude=-72.60757&scheduled_delivery_store_id=1232&pricing_store_id=1348',
+        'predicate': target_predicate
     },
     {
-        'name': 'BestBuy, Holyoke, PS5 Digital Edition',
-        'url': 'https://www.bestbuy.com/site/sony-playstation-5-digital-edition-console/6430161.p?skuId=6430161',
-        'headers': {'User-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36', 'Accept': '*/*'},
-        'predicate': bestbuy_predicate
+        'name': 'Target, Worcester, PS5 Digital Edition',
+        'url': 'https://redsky.target.com/redsky_aggregations/v1/web/pdp_fulfillment_v1?key=ff457966e64d5e877fdbad070f276d18ecec4a01&tcin=81114595&store_id=1348&store_positions_store_id=1348&has_store_positions_store_id=true&zip=01075&state=MA&latitude=42.24842&longitude=-72.60757&scheduled_delivery_store_id=1232&pricing_store_id=1348',
+        'predicate': target_predicate
     },
-    {
-        'name': 'Amazon, PS5 Disc Edition',
-        'url': 'https://www.amazon.com/PlayStation-5-Console/dp/B08FC5L3RG',
-        'headers': {'User-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36', 'Accept': '*/*'},
-        'predicate': lambda resp: 'Add to Cart' in resp.text
-    },
-    {
-        'name': 'Walmart, PS5 Disc Edition',
-        'url': 'https://www.walmart.com/ip/PlayStation-5-Console/363472942',
-        'headers': {'User-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36', 'Accept': '*/*'},
-        'predicate': lambda resp: 'Add to cart' in resp.text
-    },
-    {
-        'name': 'Walmart, PS5 Digital Edition',
-        'url': 'https://www.walmart.com/ip/Sony-PlayStation-5-Digital-Edition/493824815',
-        'headers': {'User-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36', 'Accept': '*/*'},
-        'predicate': lambda resp: 'Add to cart' in resp.text
-    },
+    # {
+    #     'name': 'BestBuy, Holyoke, PS5 Disc Edition',
+    #     'url': 'https://www.bestbuy.com/site/sony-playstation-5-console/6426149.p?skuId=6426149',
+    #     'headers': {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36', 'Accept': '*/*'},
+    #     'predicate': bestbuy_predicate
+    # },
+    # {
+    #     'name': 'BestBuy, Holyoke, PS5 Digital Edition',
+    #     'url': 'https://www.bestbuy.com/site/sony-playstation-5-digital-edition-console/6430161.p?skuId=6430161',
+    #     'headers': {'User-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36', 'Accept': '*/*'},
+    #     'predicate': bestbuy_predicate
+    # },
+    # {
+    #     'name': 'Amazon, PS5 Disc Edition',
+    #     'url': 'https://www.amazon.com/PlayStation-5-Console/dp/B08FC5L3RG',
+    #     'headers': {'User-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36', 'Accept': '*/*'},
+    #     'predicate': lambda resp: 'Add to Cart' in resp.text
+    # },
+    # {
+    #     'name': 'Walmart, PS5 Disc Edition',
+    #     'url': 'https://www.walmart.com/ip/PlayStation-5-Console/363472942',
+    #     'headers': {'User-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36', 'Accept': '*/*'},
+    #     'predicate': lambda resp: 'Add to cart' in resp.text
+    # },
+    # {
+    #     'name': 'Walmart, PS5 Digital Edition',
+    #     'url': 'https://www.walmart.com/ip/Sony-PlayStation-5-Digital-Edition/493824815',
+    #     'headers': {'User-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36', 'Accept': '*/*'},
+    #     'predicate': lambda resp: 'Add to cart' in resp.text
+    # },
     
 ]
 
